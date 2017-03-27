@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Лабораторна 1</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+		<script>
+			function setPost() {
+				document.getElementById("form").setAttribute("action","php/login_post.php");
+				document.getElementById("form").setAttribute("method","post");}
+			function setGet() {
+				document.getElementById("form").setAttribute("action","php/login_get.php");
+				document.getElementById("form").setAttribute("method","get");
+			}
+		</script>
+		<header>
+			<div class="header">
+				<h2>Вхід на сторінку</h2>
+			</div>	
+		</header>
+
+		<main>
+			<div  class="content">
+				<form action="php/login_post.php" method="post" id="form">
+					<p><label for="user">Користувач</label>
+					<input type="text" name="user" id="user" placeholder="Ім'я користувача" required></p>
+					<p><label for="pass">Пароль</label>
+					<input type="password" id="pass" name="pass" placeholder="Пароль" required></p>
+					<p><label for="method">Виберіть метод передачі</label>
+					<input type="radio" name="method" id="method" value="POST" checked onclick="setPost()">POST
+					<input type="radio" name="method" id="method" value="GET" onclick="setGet()">GET</p>
+					<p><a href="html/registration.html">Зареєструватся</a></p>
+					<p><input type="submit" name="done" value="Надіслати"></p>
+				</form>
+			</div>
+		</main>
+	</body>
+</html>

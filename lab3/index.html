@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+	  <style>
+		#draggable {
+			width: 150px; height: 150px; background-color: rgba(0, 0, 0, 0.1); flex-wrap: wrap; align-content: center; 
+		}
+		p { font-family: Lato; font-weight: 600; background-color: rgba(0, 0, 0, 0.1); text-align: center;  }
+		.ui-resizable-helper { border: 1px dotted gray; }
+		  #feedback { font-size: 1.4em; }
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }	
+	  </style>
+	  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+	  <link rel="stylesheet" href="code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+		$(() => {
+			$("#draggable").draggable();
+			$("#selectable").selectable();
+			$("#button").on("click", () => {
+				$("#draggable").effect("bounce", {}, 500);
+			});
+			$("#highlight").on("click", () => {
+				$("#draggable").effect("highlight", {}, 500);
+			});
+		});
+	  </script>
+	</head>
+	<body>
+		<button id="button" class="ui-state-default ui-corner-all">Show effect</button>
+		<button id="highlight" class="ui-state-default ui-corner-all">Highlight</button>
+		<div id="draggable" class="ui-widget-content">
+			<p>Draggable div</p>
+			<ol id="selectable">
+			  <li class="ui-widget-content">Item 1</li>
+			  <li class="ui-widget-content">Item 2</li>
+			  <li class="ui-widget-content">Item 3</li>
+			  <li class="ui-widget-content">Item 4</li>
+			  <li class="ui-widget-content">Item 5</li>
+			</ol>
+		</div>
+	</body>
+</html>

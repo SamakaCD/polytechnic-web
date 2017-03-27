@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Лабораторна 1</title>
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script>
+			function setPost(){
+				document.getElementById("form").setAttribute("action","../php/test_post.php");
+				document.getElementById("form").setAttribute("method","post");
+			}
+			
+			function setGet(){
+				document.getElementById("form").setAttribute("action","../php/test_get.php");
+				document.getElementById("form").setAttribute("method","get");
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<h2>Заповність усі поля всі поля</h2>
+			</div>
+		</header>
+		<main>
+			<div  class="content">
+				<form enctype="multipart/form-data" action="../php/test_post.php" method="post" id="form">
+					<p><label>Виберіть аватар.</label>
+						<input type="file"  name="filename"  accept="image/*">
+					</p>
+					<p><label for="user">Користувач</label>
+						<input type="text" name="user" id="user" placeholder="Ім'я користувача" required>
+					</p>
+					<p><label for="pass">Пароль</label>
+						<input type="password" id="pass" name="pass" placeholder="Пароль" required>
+					</p>
+					<p><label for="mail">Електронний адрес</label>
+						<input type="email" id="mail" name="mail" placeholder="Електронний адрес" required>
+					</p>
+					<p>Стать:
+						<input type="radio" name="radio" value="male" checked>Чоловіча
+						<input type="radio" name="radio" value="female">Жіноча
+					</p>
+					<p><label for="check">Точно зареєструвати?</label>
+						<input type="checkbox" name="check" id="check" value="cheked">
+					<p>
+						<label for="method">Виберіть метод передачі</label>
+						<input type="radio" name="method" id="method" value="POST" checked
+							onclick="setPost()">POST
+						<input type="radio" name="method" id="method" value="GET" onclick="setGet()">GET
+					</p>
+					<p><label for="exe">Програма для виконнаяння</label><input type="text" id="exe" name="exe"></p>
+					<p><input type="submit" name="done" value="Надіслати"></p>
+				</form>
+			</div>
+		</main>
+		<footer></footer>
+	</body>
+</html>
