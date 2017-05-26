@@ -7,9 +7,9 @@
 		}
 		p { font-family: Lato; font-weight: 600; background-color: rgba(0, 0, 0, 0.1); text-align: center;  }
 		.ui-resizable-helper { border: 1px dotted gray; }
-		  #feedback { font-size: 1.4em; }
-  #selectable .ui-selecting { background: #FECA40; }
-  #selectable .ui-selected { background: #F39814; color: white; }	
+		#feedback { font-size: 1.4em; }
+		#selectable .ui-selecting { background: #FECA40; }
+		#selectable .ui-selected { background: #F39814; color: white; }	
 	  </style>
 	  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
 	  <link rel="stylesheet" href="code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -25,12 +25,17 @@
 			$("#highlight").on("click", () => {
 				$("#draggable").effect("highlight", {}, 500);
 			});
+			$("#toggle").on("click", () => {
+				$("#draggable").slideToggle();
+			});
+			$("#draggable").css('box-shadow', '0px 10px 25px rgba(0, 0, 0, 0.5)');
 		});
 	  </script>
 	</head>
 	<body>
 		<button id="button" class="ui-state-default ui-corner-all">Show effect</button>
 		<button id="highlight" class="ui-state-default ui-corner-all">Highlight</button>
+		<button id="toggle" class="ui-state-default ui-corner-all">Toggle</button>
 		<div id="draggable" class="ui-widget-content">
 			<p>Draggable div</p>
 			<ol id="selectable">

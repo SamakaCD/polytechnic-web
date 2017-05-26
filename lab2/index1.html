@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Лабораторна 1</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script>
-			for (let i = 0; i < 10; i++) {
-				window.document.images[0] = new Image(250, 250);
-				window.document.images[0].src = "img.png";
-			}
-		</script>
 	</head>
 
 	<body>
+		<script>
+			window.onload = () => alert("Hello");
+			
+			function onClickButton() {
+				alert("Button clicked");
+				document.getElementById("root").style.cursor = "wait";
+			}
+			
+			function onGetGreeting() {
+				const name = prompt("What is your name?");
+				alert(`Hello, ${name}!`);
+			}
+			
+			const imgs = [ "1.jpg", "2.jpg" ];
+			let i = 0;
+			setInterval(() => {
+				const img = window.document.getElementById("imaga");
+				img.src = imgs[(i++) % 2];
+			}, 1000);
+		</script>
+		<header>
+			<div class="header">
+				<h2>Вхід на сторінку</h2>
+			</div>	
+		</header>
+
 		<main>
-			<div class="content" id="content"	>
+			<div  class="content" id="root">
+				<button onclick="onClickButton()">Click me</button>
+				<button onclick="onGetGreeting()">Get greeting</button>
+				<img id="imaga" src="1.jpg" style="width:48px;height:48px;" />
+				<form action="php/login_post.php" method="post" id="form">
+					<p><label for="user">Користувач</label>
+					<input type="text" name="user" id="user" placeholder="Ім'я користувача" required></p>
+					<p><label for="pass">Пароль</label>
+					<input type="password" id="pass" name="pass" placeholder="Пароль" required></p>
+					<p><label for="method">Виберіть метод передачі</label>
+					<input type="radio" name="method" id="method" value="POST" checked onclick="setPost()">POST
+					<input type="radio" name="method" id="method" value="GET" onclick="setGet()">GET</p>
+					<p><a href="html/registration.html">Зареєструватся</a></p>
+					<p><input type="submit" name="done" value="Надіслати"></p>
+				</form>
 			</div>
 		</main>
 	</body>
